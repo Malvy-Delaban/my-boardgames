@@ -493,5 +493,14 @@ const boardGames = [
             "Comp",
             "Duo"
         ]
+    },
+    {
+        name: "Mille Sabords",
+        gameLength: 30,
+        playerMin: 2,
+        playerMax: 5,
+        gamemodes: [
+            "Comp"
+        ]
     }
 ]
