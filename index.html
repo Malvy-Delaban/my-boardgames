@@ -1,0 +1,483 @@
+<!DOCTYPE HTML>
+<html>
+<title>My Boardgames</title>
+<link rel="icon" type="image/x-icon" href="/assets/icon.ico">
+
+<!-- IMPORT FONTS -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Exile&display=swap" rel="stylesheet">
+
+<!-- INITIALIZE DATASETS -->
+<script src="dataset.js"></script>
+
+<!-- STYLE -->
+<style type="text/css">
+    html,
+    body {
+        width: 100%;
+    }
+
+    html {
+        background-color: #2b2435;
+        color: white;
+        font-family: "Commissioner", sans-serif;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    h1 {
+        margin-top: 0;
+        margin-bottom: 0;
+        font-family: "Exile", system-ui;
+        color: #ffdd84;
+        font-size: 4rem;
+        font-weight: normal;
+    }
+
+    h2 {
+        margin: 0;
+        margin-top: 0.5rem;
+    }
+
+    h3 {
+        margin-top: 0;
+        margin-bottom: 1rem;
+        font-family: "Hachi Maru Pop", cursive;
+        color: white;
+        font-size: 1.1rem;
+        font-weight: normal;
+        text-align: center !important;
+    }
+
+    .titles-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 2rem;
+        text-align: center;
+    }
+
+    .filter-box-contaier {
+        margin: 4rem 8rem 0;
+        margin-top: 4rem;
+        width: calc(100% - 16rem);
+        height: 5rem;
+    }
+
+    .filters-option-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: left;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .single-filter {
+        background-color: white;
+        padding: 0.3rem 0.8rem;
+        color: rgb(23, 23, 27);
+        border-radius: 1rem;
+        font-weight: 550;
+    }
+
+    #my-collection {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        margin: 2rem;
+        margin-top: 1rem;
+    }
+
+    .single-game-container {
+        background-color: #342d3d;
+        border-radius: 1rem;
+        padding: 1rem;
+        width: 12rem;
+        height: 20rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .game-img {
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+        border-radius: 0.2rem;
+        max-width: 100%;
+        height: auto;
+        max-height: 12rem;
+        Overflow: hidden;
+    }
+
+    .tag-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+        margin-top: 0.5rem;
+    }
+
+    .single-tag {
+        padding: 0.3rem 0.5rem;
+        color: rgb(23, 23, 27);
+        border-radius: 1rem;
+        font-weight: 550;
+    }
+
+    .single-filter:hover {
+        opacity: 100%;
+        transition: 400ms;
+        cursor: pointer;
+    }
+
+    .unselected-filter {
+        opacity: 50%;
+        border: rgba(255, 255, 255, 0) 0.2rem solid !important;
+    }
+
+    .filter-tag {
+        color: white;
+        border: white 0.2rem solid;
+    }
+
+    .duo-tag {
+        background-color: #66d55e;
+    }
+
+    .comp-tag {
+        background-color: #ff8484;
+    }
+
+    .coop-tag {
+        background-color: #84c2ff;
+    }
+
+    .extension-tag {
+        background-color: #d971ce;
+    }
+
+    .player-tag {
+        background-color: #93c350;
+    }
+
+    .solo-tag {
+        background-color: #ffdd84;
+    }
+
+    .partygame-tag {
+        background-color: #9971d9;
+    }
+
+    @media (pointer:none),
+    (pointer:coarse) {
+        html {
+            font-size: 25px;
+        }
+
+        h1 {
+            font-size: 3rem;
+        }
+
+        .filter-box-contaier {
+            height: auto;
+            margin: 2rem 0 2rem;
+            width: calc(100% - 4rem);
+            width: 100%;
+        }
+
+        .filters-option-container {
+            justify-content: center;
+            align-items: center;
+        }
+
+        .single-filter {
+            font-size: 1.5rem;
+        }
+
+        #filter-text {
+            display: none;
+        }
+
+        h2 {
+            width: 100%;
+            text-align: center;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            font-weight: bold;
+            text-align: center !important;
+        }
+
+        .single-game-container {
+            border-radius: 2rem;
+            padding: 0.8rem;
+            width: 15rem;
+            height: 20rem;
+        }
+
+        .single-tag {
+            font-size: 1.2rem;
+            padding: 0.3rem 0.8rem;
+        }
+    }
+</style>
+
+<!-- HTML -->
+
+<body>
+    <div class="titles-container">
+        <div class="titles">
+            <h1>My Boardgames</h1>
+        </div>
+    </div>
+    <div class="filter-box-contaier">
+        <div class="filters-option-container">
+            <span id="filter-text">Filter by:</span>
+            <div class="single-filter unselected-filter player-tag filter-tag" id="player-button">
+                <span onclick="playerFilterMinus()">-</span>
+                <span id="player-number-filter">1</span>
+                <span onclick="filterByPlayer()">Players</span>
+                <span onclick="playerFilterPlus()">+</span>
+            </div>
+            <div class="single-filter unselected-filter duo-tag filter-tag" onclick="filterByDuo()" id="duo-button">Duo
+                Focused
+            </div>
+            <div class="single-filter unselected-filter comp-tag filter-tag" onclick="filterByComp()" id="comp-button">
+                Comp
+            </div>
+            <div class="single-filter unselected-filter coop-tag filter-tag" onclick="filterByCoop()" id="coop-button">
+                Coop
+            </div>
+            <div class="single-filter unselected-filter partygame-tag filter-tag" onclick="filterByPartyGame()"
+                id="partygame-button">
+                Party Game
+            </div>
+        </div>
+        <h2 id="game-number">No data found</h2>
+    </div>
+    <div id="my-collection">
+    </div>
+</body>
+
+<!-- SCRIPTS -->
+<script>
+    function getRandomInt(max) {
+        return Math.floor(Math.random() * max);
+    }
+
+    function getSingleTagElement(text, tagClass) {
+        const newDiv = document.createElement("div");
+        newDiv.innerHTML = text;
+        newDiv.classList.add("single-tag");
+        newDiv.classList.add(tagClass);
+        return newDiv;
+    }
+
+    function getTagListElement(game) {
+        const newDiv = document.createElement("div");
+        newDiv.classList.add("tag-list");
+        if (game.extensionOf)
+            newDiv.appendChild(getSingleTagElement("Extension", "extension-tag"));
+        if (game.playerMin != game.playerMax)
+            newDiv.appendChild(getSingleTagElement(game.playerMin + "-" + game.playerMax + "P", "player-tag"));
+        else
+            newDiv.appendChild(getSingleTagElement(game.playerMin + "P", "player-tag"));
+        if (game.playerMin <= 1)
+            newDiv.appendChild(getSingleTagElement("Solo", "solo-tag"));
+        game.gamemodes.forEach((gamemode) => {
+            if (gamemode == "Coop")
+                newDiv.appendChild(getSingleTagElement(gamemode, "coop-tag"));
+            else if (gamemode == "Comp")
+                newDiv.appendChild(getSingleTagElement(gamemode, "comp-tag"));
+            else if (gamemode == "Duo")
+                newDiv.appendChild(getSingleTagElement(gamemode, "duo-tag"));
+            else if (gamemode === "Party Game")
+                newDiv.appendChild(getSingleTagElement(gamemode, "partygame-tag"));
+        });
+        return newDiv;
+    }
+
+    function getGameContainer(game) {
+        const newDiv = document.createElement("div");
+        newDiv.classList.add("single-game-container")
+        const newImg = document.createElement("img");
+        newImg.src = gamesImgPath + game.name + ".png";
+        newImg.classList.add("game-img");
+        const newTitle = document.createElement("h3");
+        newTitle.innerHTML = game.name;
+        const newTagList = getTagListElement(game);
+        newDiv.appendChild(newTitle);
+        newDiv.appendChild(newImg);
+        newDiv.appendChild(newTagList);
+        return newDiv;
+    }
+
+    function fillCollectionContainer(collection) {
+        const containerDiv = document.getElementById("my-collection");
+        collection.forEach((singleGame) => {
+            if (singleGame.isDisplayed)
+                containerDiv.appendChild(getGameContainer(singleGame));
+        });
+    }
+
+    function setDisplayGameNumber(gameNumber) {
+        const textElement = document.getElementById("game-number");
+        if (gameNumber > 0)
+            textElement.innerHTML = gameNumber + " games in collection";
+        else
+            textElement.innerHTML = "No data";
+    }
+
+    function getCollection() {
+        return boardGames;
+    }
+
+    function resetDisplay() {
+        const containerDiv = document.getElementById("my-collection");
+        containerDiv.innerHTML = '';
+        setDisplayGameNumber(0);
+        defaultSelection();
+    }
+
+    function compareString(a, b) {
+        if (a.name < b.name)
+            return -1;
+        if (a.name > b.name)
+            return 1;
+        return 0;
+    }
+
+    function defaultSelection() {
+        collection = collection.sort(compareString);
+        collection.forEach(game => {
+            game.isDisplayed = true;
+        });
+    }
+
+    function filterByDuo() {
+        duoFilterStatus = !duoFilterStatus;
+        const statusButton = document.getElementById("duo-button");
+        statusButton.classList.remove("unselected-filter")
+        if (!duoFilterStatus)
+            statusButton.classList.add("unselected-filter")
+        applyCurrentFilters()
+    }
+
+    function filterByCoop() {
+        coopFilterStatus = !coopFilterStatus;
+        const statusButton = document.getElementById("coop-button");
+        statusButton.classList.remove("unselected-filter")
+        if (!coopFilterStatus)
+            statusButton.classList.add("unselected-filter")
+        applyCurrentFilters()
+    }
+
+    function filterByComp() {
+        compFilterStatus = !compFilterStatus;
+        const statusButton = document.getElementById("comp-button");
+        statusButton.classList.remove("unselected-filter")
+        if (!compFilterStatus)
+            statusButton.classList.add("unselected-filter")
+        applyCurrentFilters()
+    }
+
+    function filterByPartyGame() {
+        partyGameFilterStatus = !partyGameFilterStatus;
+        const statusButton = document.getElementById("partygame-button");
+        statusButton.classList.remove("unselected-filter")
+        if (!partyGameFilterStatus)
+            statusButton.classList.add("unselected-filter")
+        applyCurrentFilters()
+    }
+
+    function filterByPlayer() {
+        playerFilterStatus = !playerFilterStatus;
+        const statusButton = document.getElementById("player-button");
+        statusButton.classList.remove("unselected-filter")
+        if (!playerFilterStatus)
+            statusButton.classList.add("unselected-filter")
+        applyCurrentFilters();
+    }
+
+    function playerFilterPlus() {
+        if (!playerFilterStatus) {
+            playerFilterStatus = true;
+            const statusButton = document.getElementById("player-button");
+            statusButton.classList.remove("unselected-filter")
+        }
+
+        playerFilterNumber++;
+        const statusButtonCount = document.getElementById("player-number-filter");
+        statusButtonCount.innerHTML = playerFilterNumber;
+        applyCurrentFilters();
+    }
+
+    function playerFilterMinus() {
+        if (!playerFilterStatus) {
+            playerFilterStatus = true;
+            const statusButton = document.getElementById("player-button");
+            statusButton.classList.remove("unselected-filter")
+        }
+
+        if (playerFilterNumber > 1)
+            playerFilterNumber--;
+        const statusButtonCount = document.getElementById("player-number-filter");
+        statusButtonCount.innerHTML = playerFilterNumber;
+        applyCurrentFilters();
+    }
+
+    function applyCurrentFilters() {
+        resetDisplay();
+        collection.forEach(game => {
+            if (!game.gamemodes.includes("Duo") && duoFilterStatus)
+                game.isDisplayed = false;
+            if (!game.gamemodes.includes("Coop") && coopFilterStatus)
+                game.isDisplayed = false;
+            if (!game.gamemodes.includes("Comp") && compFilterStatus)
+                game.isDisplayed = false;
+            if (!game.gamemodes.includes("Party Game") && partyGameFilterStatus)
+                game.isDisplayed = false;
+            if (playerFilterStatus && (playerFilterNumber < game.playerMin || playerFilterNumber > game.playerMax))
+                game.isDisplayed = false;
+        });
+        setDisplayGameNumber(getValidGameNumber(collection));
+        fillCollectionContainer(collection);
+    }
+
+    function getValidGameNumber(collection) {
+        var count = 0;
+        collection.forEach(game => {
+            if (game.isDisplayed)
+                count++;
+        });
+        return count;
+    }
+
+    var playerFilterNumber = 1;
+    var playerFilterStatus = false;
+    var duoFilterStatus = false;
+    var coopFilterStatus = false;
+    var compFilterStatus = false;
+    var partyGameFilterStatus = false;
+    const defaultCollection = getCollection();
+    var collection = defaultCollection;
+    const gamesImgPath = "assets/games/";
+    defaultSelection();
+
+    setDisplayGameNumber(getValidGameNumber(collection));
+    fillCollectionContainer(collection);
+</script>
+
+</html>
