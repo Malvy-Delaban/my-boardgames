@@ -502,5 +502,14 @@ const boardGames = [
         gamemodes: [
             "Comp"
         ]
+    },
+    {
+        name: "Moon Colony",
+        gameLength: 120,
+        playerMin: 1,
+        playerMax: 5,
+        gamemodes: [
+            "Comp"
+        ]
     }
 ]
