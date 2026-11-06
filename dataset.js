@@ -7,6 +7,12 @@ const boardGames = [
         gamemodes: [
             "Coop"
         ],
+        ratings: {
+            gameplayLulu: 87,
+            gameplayMalvy: 95,
+            visualLulu: 85,
+            visualMalvy: 85,
+        }
     },
     {
         name: "Dominion",
@@ -15,7 +21,13 @@ const boardGames = [
         playerMax: 4,
         gamemodes: [
             "Comp"
-        ]
+        ],
+        ratings: {
+            gameplayLulu: 0,
+            gameplayMalvy: 0,
+            visualLulu: 0,
+            visualMalvy: 0,
+        }
     },
     {
         name: "Dominion Nocturne",
@@ -25,7 +37,13 @@ const boardGames = [
         playerMax: 4,
         gamemodes: [
             "Comp"
-        ]
+        ],
+        ratings: {
+            gameplayLulu: 0,
+            gameplayMalvy: 0,
+            visualLulu: 0,
+            visualMalvy: 0,
+        }
     },
     {
         name: "Dominion Alchemy",
@@ -35,7 +53,13 @@ const boardGames = [
         playerMax: 4,
         gamemodes: [
             "Comp"
-        ]
+        ],
+        ratings: {
+            gameplayLulu: 0,
+            gameplayMalvy: 0,
+            visualLulu: 0,
+            visualMalvy: 0,
+        }
     },
     {
         name: "Dominion Mixed Box",
@@ -45,7 +69,13 @@ const boardGames = [
         playerMax: 4,
         gamemodes: [
             "Comp"
-        ]
+        ],
+        ratings: {
+            gameplayLulu: 0,
+            gameplayMalvy: 0,
+            visualLulu: 0,
+            visualMalvy: 0,
+        }
     },
     {
         name: "Middle-Ages",
@@ -54,7 +84,13 @@ const boardGames = [
         playerMax: 5,
         gamemodes: [
             "Comp"
-        ]
+        ],
+        ratings: {
+            gameplayLulu: 0,
+            gameplayMalvy: 0,
+            visualLulu: 0,
+            visualMalvy: 0,
+        }
     },
     {
         name: "Mage Noir",
@@ -64,7 +100,13 @@ const boardGames = [
         gamemodes: [
             "Comp",
             "Duo"
-        ]
+        ],
+        ratings: {
+            gameplayLulu: 0,
+            gameplayMalvy: 0,
+            visualLulu: 0,
+            visualMalvy: 0,
+        }
     },
     {
         name: "Lueur",
@@ -73,7 +115,13 @@ const boardGames = [
         playerMax: 4,
         gamemodes: [
             "Comp"
-        ]
+        ],
+        ratings: {
+            gameplayLulu: 0,
+            gameplayMalvy: 0,
+            visualLulu: 0,
+            visualMalvy: 0,
+        }
     },
     {
         name: "Andor",
@@ -82,7 +130,13 @@ const boardGames = [
         playerMax: 4,
         gamemodes: [
             "Coop"
-        ]
+        ],
+        ratings: {
+            gameplayLulu: 0,
+            gameplayMalvy: 0,
+            visualLulu: 0,
+            visualMalvy: 0,
+        }
     },
     {
         name: "Codex Naturalis",
@@ -91,7 +145,13 @@ const boardGames = [
         playerMax: 4,
         gamemodes: [
             "Comp"
-        ]
+        ],
+        ratings: {
+            gameplayLulu: 0,
+            gameplayMalvy: 0,
+            visualLulu: 0,
+            visualMalvy: 0,
+        }
     },
     {
         name: "Kyudo",
@@ -100,7 +160,13 @@ const boardGames = [
         playerMax: 4,
         gamemodes: [
             "Comp"
-        ]
+        ],
+        ratings: {
+            gameplayLulu: 0,
+            gameplayMalvy: 0,
+            visualLulu: 0,
+            visualMalvy: 0,
+        }
     },
     {
         name: "The Vale of Eternity",
@@ -109,7 +175,13 @@ const boardGames = [
         playerMax: 4,
         gamemodes: [
             "Comp"
-        ]
+        ],
+        ratings: {
+            gameplayLulu: 0,
+            gameplayMalvy: 0,
+            visualLulu: 0,
+            visualMalvy: 0,
+        }
     },
     {
         name: "Take Time",
@@ -118,7 +190,13 @@ const boardGames = [
         playerMax: 4,
         gamemodes: [
             "Coop"
-        ]
+        ],
+        ratings: {
+            gameplayLulu: 0,
+            gameplayMalvy: 0,
+            visualLulu: 0,
+            visualMalvy: 0,
+        }
     },
     {
         name: "Minute Realms",
@@ -127,7 +205,13 @@ const boardGames = [
         playerMax: 5,
         gamemodes: [
             "Comp"
-        ]
+        ],
+        ratings: {
+            gameplayLulu: 0,
+            gameplayMalvy: 0,
+            visualLulu: 0,
+            visualMalvy: 0,
+        }
     },
     {
         name: "7 Wonders Dice",
@@ -136,7 +220,13 @@ const boardGames = [
         playerMax: 7,
         gamemodes: [
             "Comp"
-        ]
+        ],
+        ratings: {
+            gameplayLulu: 0,
+            gameplayMalvy: 0,
+            visualLulu: 0,
+            visualMalvy: 0,
+        }
     },
     {
         name: "One Deck Dungeon",
@@ -146,7 +236,13 @@ const boardGames = [
         gamemodes: [
             "Coop",
             "Duo"
-        ]
+        ],
+        ratings: {
+            gameplayLulu: 0,
+            gameplayMalvy: 0,
+            visualLulu: 0,
+            visualMalvy: 0,
+        }
     },
     {
         name: "Présages",
@@ -156,7 +252,13 @@ const boardGames = [
         gamemodes: [
             "Comp",
             "Party Game"
-        ]
+        ],
+        ratings: {
+            gameplayLulu: 0,
+            gameplayMalvy: 0,
+            visualLulu: 0,
+            visualMalvy: 0,
+        }
     },
     {
         name: "Courtisans",
@@ -165,7 +267,13 @@ const boardGames = [
         playerMax: 5,
         gamemodes: [
             "Comp"
-        ]
+        ],
+        ratings: {
+            gameplayLulu: 0,
+            gameplayMalvy: 0,
+            visualLulu: 0,
+            visualMalvy: 0,
+        }
     },
     {
         name: "Akropolis",
@@ -174,7 +282,13 @@ const boardGames = [
         playerMax: 4,
         gamemodes: [
             "Comp"
-        ]
+        ],
+        ratings: {
+            gameplayLulu: 0,
+            gameplayMalvy: 0,
+            visualLulu: 0,
+            visualMalvy: 0,
+        }
     },
     {
         name: "Riftbound - Proving Grounds",
@@ -183,7 +297,13 @@ const boardGames = [
         playerMax: 4,
         gamemodes: [
             "Comp"
-        ]
+        ],
+        ratings: {
+            gameplayLulu: 0,
+            gameplayMalvy: 0,
+            visualLulu: 0,
+            visualMalvy: 0,
+        }
     },
     {
         name: "Dungeons, Dice & Danger",
@@ -192,7 +312,13 @@ const boardGames = [
         playerMax: 4,
         gamemodes: [
             "Comp"
-        ]
+        ],
+        ratings: {
+            gameplayLulu: 0,
+            gameplayMalvy: 0,
+            visualLulu: 0,
+            visualMalvy: 0,
+        }
     },
     {
         name: "Horrified D&D",
@@ -201,7 +327,13 @@ const boardGames = [
         playerMax: 5,
         gamemodes: [
             "Coop"
-        ]
+        ],
+        ratings: {
+            gameplayLulu: 0,
+            gameplayMalvy: 0,
+            visualLulu: 0,
+            visualMalvy: 0,
+        }
     },
     {
         name: "Abyss",
@@ -210,7 +342,13 @@ const boardGames = [
         playerMax: 4,
         gamemodes: [
             "Comp"
-        ]
+        ],
+        ratings: {
+            gameplayLulu: 0,
+            gameplayMalvy: 0,
+            visualLulu: 0,
+            visualMalvy: 0,
+        }
     },
     {
         name: "Abyss De Profondis",
@@ -220,7 +358,13 @@ const boardGames = [
         playerMax: 4,
         gamemodes: [
             "Comp"
-        ]
+        ],
+        ratings: {
+            gameplayLulu: 0,
+            gameplayMalvy: 0,
+            visualLulu: 0,
+            visualMalvy: 0,
+        }
     },
     {
         name: "Dice Forge",
@@ -229,7 +373,13 @@ const boardGames = [
         playerMax: 4,
         gamemodes: [
             "Comp"
-        ]
+        ],
+        ratings: {
+            gameplayLulu: 0,
+            gameplayMalvy: 0,
+            visualLulu: 0,
+            visualMalvy: 0,
+        }
     },
     {
         name: "Clank",
@@ -238,7 +388,13 @@ const boardGames = [
         playerMax: 4,
         gamemodes: [
             "Comp"
-        ]
+        ],
+        ratings: {
+            gameplayLulu: 0,
+            gameplayMalvy: 0,
+            visualLulu: 0,
+            visualMalvy: 0,
+        }
     },
     {
         name: "The Hunger",
@@ -247,7 +403,13 @@ const boardGames = [
         playerMax: 6,
         gamemodes: [
             "Comp"
-        ]
+        ],
+        ratings: {
+            gameplayLulu: 0,
+            gameplayMalvy: 0,
+            visualLulu: 0,
+            visualMalvy: 0,
+        }
     },
     {
         name: "Dungeons & Dragons",
@@ -256,7 +418,13 @@ const boardGames = [
         playerMax: 8,
         gamemodes: [
             "Coop"
-        ]
+        ],
+        ratings: {
+            gameplayLulu: 0,
+            gameplayMalvy: 0,
+            visualLulu: 0,
+            visualMalvy: 0,
+        }
     },
     {
         name: "Hellton Palace",
@@ -266,7 +434,13 @@ const boardGames = [
         gamemodes: [
             "Comp",
             "Duo"
-        ]
+        ],
+        ratings: {
+            gameplayLulu: 0,
+            gameplayMalvy: 0,
+            visualLulu: 0,
+            visualMalvy: 0,
+        }
     },
     {
         name: "Canvas",
@@ -274,8 +448,14 @@ const boardGames = [
         playerMin: 1,
         playerMax: 5,
         gamemodes: [
-            "Coop"
-        ]
+            "Comp"
+        ],
+        ratings: {
+            gameplayLulu: 0,
+            gameplayMalvy: 0,
+            visualLulu: 0,
+            visualMalvy: 0,
+        }
     },
     {
         name: "Mr. Jack",
@@ -285,7 +465,13 @@ const boardGames = [
         gamemodes: [
             "Comp",
             "Duo"
-        ]
+        ],
+        ratings: {
+            gameplayLulu: 0,
+            gameplayMalvy: 0,
+            visualLulu: 0,
+            visualMalvy: 0,
+        }
     },
     {
         name: "Hero Realms",
@@ -295,7 +481,13 @@ const boardGames = [
         gamemodes: [
             "Comp",
             "Duo"
-        ]
+        ],
+        ratings: {
+            gameplayLulu: 0,
+            gameplayMalvy: 0,
+            visualLulu: 0,
+            visualMalvy: 0,
+        }
     },
     {
         name: "Time Bomb",
@@ -305,7 +497,13 @@ const boardGames = [
         gamemodes: [
             "Comp",
             "Party Game"
-        ]
+        ],
+        ratings: {
+            gameplayLulu: 0,
+            gameplayMalvy: 0,
+            visualLulu: 0,
+            visualMalvy: 0,
+        }
     },
     {
         name: "Vaalbara",
@@ -314,7 +512,13 @@ const boardGames = [
         playerMax: 5,
         gamemodes: [
             "Comp"
-        ]
+        ],
+        ratings: {
+            gameplayLulu: 0,
+            gameplayMalvy: 0,
+            visualLulu: 0,
+            visualMalvy: 0,
+        }
     },
     {
         name: "Tranquilité",
@@ -323,7 +527,13 @@ const boardGames = [
         playerMax: 5,
         gamemodes: [
             "Coop"
-        ]
+        ],
+        ratings: {
+            gameplayLulu: 0,
+            gameplayMalvy: 0,
+            visualLulu: 0,
+            visualMalvy: 0,
+        }
     },
     {
         name: "Kyoto No Neko",
@@ -332,7 +542,13 @@ const boardGames = [
         playerMax: 4,
         gamemodes: [
             "Comp"
-        ]
+        ],
+        ratings: {
+            gameplayLulu: 0,
+            gameplayMalvy: 0,
+            visualLulu: 0,
+            visualMalvy: 0,
+        }
     },
     {
         name: "Paper Tales",
@@ -341,7 +557,13 @@ const boardGames = [
         playerMax: 7,
         gamemodes: [
             "Comp"
-        ]
+        ],
+        ratings: {
+            gameplayLulu: 0,
+            gameplayMalvy: 0,
+            visualLulu: 0,
+            visualMalvy: 0,
+        }
     },
     {
         name: "Takenoko",
@@ -350,7 +572,13 @@ const boardGames = [
         playerMax: 4,
         gamemodes: [
             "Comp"
-        ]
+        ],
+        ratings: {
+            gameplayLulu: 0,
+            gameplayMalvy: 0,
+            visualLulu: 0,
+            visualMalvy: 0,
+        }
     },
     {
         name: "Five Tribes",
@@ -359,7 +587,13 @@ const boardGames = [
         playerMax: 4,
         gamemodes: [
             "Comp"
-        ]
+        ],
+        ratings: {
+            gameplayLulu: 0,
+            gameplayMalvy: 0,
+            visualLulu: 0,
+            visualMalvy: 0,
+        }
     },
     {
         name: "One Piece Adventure Island",
@@ -369,7 +603,13 @@ const boardGames = [
         gamemodes: [
             "Comp",
             "Coop"
-        ]
+        ],
+        ratings: {
+            gameplayLulu: 0,
+            gameplayMalvy: 0,
+            visualLulu: 0,
+            visualMalvy: 0,
+        }
     },
     {
         name: "Small World of Warcraft",
@@ -378,7 +618,13 @@ const boardGames = [
         playerMax: 5,
         gamemodes: [
             "Comp"
-        ]
+        ],
+        ratings: {
+            gameplayLulu: 0,
+            gameplayMalvy: 0,
+            visualLulu: 0,
+            visualMalvy: 0,
+        }
     },
     {
         name: "Rising Sun",
@@ -387,7 +633,13 @@ const boardGames = [
         playerMax: 5,
         gamemodes: [
             "Comp"
-        ]
+        ],
+        ratings: {
+            gameplayLulu: 0,
+            gameplayMalvy: 0,
+            visualLulu: 0,
+            visualMalvy: 0,
+        }
     },
     {
         name: "Antinomy",
@@ -397,7 +649,13 @@ const boardGames = [
         gamemodes: [
             "Comp",
             "Duo"
-        ]
+        ],
+        ratings: {
+            gameplayLulu: 0,
+            gameplayMalvy: 0,
+            visualLulu: 0,
+            visualMalvy: 0,
+        }
     },
     {
         name: "In Vino Morte",
@@ -407,7 +665,13 @@ const boardGames = [
         gamemodes: [
             "Comp",
             "Party Game"
-        ]
+        ],
+        ratings: {
+            gameplayLulu: 0,
+            gameplayMalvy: 0,
+            visualLulu: 0,
+            visualMalvy: 0,
+        }
     },
     {
         name: "Level 10",
@@ -416,7 +680,13 @@ const boardGames = [
         playerMax: 5,
         gamemodes: [
             "Comp"
-        ]
+        ],
+        ratings: {
+            gameplayLulu: 0,
+            gameplayMalvy: 0,
+            visualLulu: 0,
+            visualMalvy: 0,
+        }
     },
     {
         name: "Personne n'a testé ce truc",
@@ -426,7 +696,13 @@ const boardGames = [
         gamemodes: [
             "Comp",
             "Party Game"
-        ]
+        ],
+        ratings: {
+            gameplayLulu: 0,
+            gameplayMalvy: 0,
+            visualLulu: 0,
+            visualMalvy: 0,
+        }
     },
     {
         name: "Vivarium",
@@ -435,7 +711,13 @@ const boardGames = [
         playerMax: 4,
         gamemodes: [
             "Comp"
-        ]
+        ],
+        ratings: {
+            gameplayLulu: 0,
+            gameplayMalvy: 0,
+            visualLulu: 0,
+            visualMalvy: 0,
+        }
     },
     {
         name: "Catan",
@@ -444,7 +726,13 @@ const boardGames = [
         playerMax: 4,
         gamemodes: [
             "Comp"
-        ]
+        ],
+        ratings: {
+            gameplayLulu: 0,
+            gameplayMalvy: 0,
+            visualLulu: 0,
+            visualMalvy: 0,
+        }
     },
     {
         name: "7 Wonders",
@@ -453,7 +741,13 @@ const boardGames = [
         playerMax: 7,
         gamemodes: [
             "Comp"
-        ]
+        ],
+        ratings: {
+            gameplayLulu: 0,
+            gameplayMalvy: 0,
+            visualLulu: 0,
+            visualMalvy: 0,
+        }
     },
     {
         name: "Splendor",
@@ -462,7 +756,13 @@ const boardGames = [
         playerMax: 4,
         gamemodes: [
             "Comp"
-        ]
+        ],
+        ratings: {
+            gameplayLulu: 0,
+            gameplayMalvy: 0,
+            visualLulu: 0,
+            visualMalvy: 0,
+        }
     },
     {
         name: "Citadelles",
@@ -472,7 +772,13 @@ const boardGames = [
         gamemodes: [
             "Comp",
             "Party Game"
-        ]
+        ],
+        ratings: {
+            gameplayLulu: 0,
+            gameplayMalvy: 0,
+            visualLulu: 0,
+            visualMalvy: 0,
+        }
     },
     {
         name: "Complots 2",
@@ -482,7 +788,13 @@ const boardGames = [
         gamemodes: [
             "Comp",
             "Party Game"
-        ]
+        ],
+        ratings: {
+            gameplayLulu: 0,
+            gameplayMalvy: 0,
+            visualLulu: 0,
+            visualMalvy: 0,
+        }
     },
     {
         name: "Magic Soirée Jeu",
@@ -492,7 +804,13 @@ const boardGames = [
         gamemodes: [
             "Comp",
             "Duo"
-        ]
+        ],
+        ratings: {
+            gameplayLulu: 0,
+            gameplayMalvy: 0,
+            visualLulu: 0,
+            visualMalvy: 0,
+        }
     },
     {
         name: "Mille Sabords",
@@ -501,7 +819,13 @@ const boardGames = [
         playerMax: 5,
         gamemodes: [
             "Comp"
-        ]
+        ],
+        ratings: {
+            gameplayLulu: 0,
+            gameplayMalvy: 0,
+            visualLulu: 0,
+            visualMalvy: 0,
+        }
     },
     {
         name: "Moon Colony",
@@ -510,6 +834,12 @@ const boardGames = [
         playerMax: 5,
         gamemodes: [
             "Comp"
-        ]
+        ],
+        ratings: {
+            gameplayLulu: 0,
+            gameplayMalvy: 0,
+            visualLulu: 0,
+            visualMalvy: 0,
+        }
     }
 ]

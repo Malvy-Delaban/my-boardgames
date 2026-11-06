@@ -27,9 +27,10 @@
     }
 
     html {
-        background-color: #2b2435;
+        background: linear-gradient(#352434, #242a35);
         color: white;
         font-family: "Commissioner", sans-serif;
+        min-height: 100vh;
     }
 
     body {
@@ -44,6 +45,9 @@
         color: #ffdd84;
         font-size: 4rem;
         font-weight: normal;
+        background: -webkit-linear-gradient(#ffdd84, #c9a064);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
     }
 
     h2 {
@@ -65,7 +69,7 @@
         width: 100%;
         display: flex;
         justify-content: center;
-        margin-top: 2rem;
+        padding-top: 2rem;
         text-align: center;
     }
 
@@ -113,6 +117,16 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        transition: 400ms;
+        border: transparent solid 0.2rem;
+    }
+
+    .single-game-container:hover {
+        cursor: pointer;
+        background: linear-gradient(#5c415f, #42415f);
+        box-shadow: 0rem 0rem 5rem rgba(215, 190, 236, 0.3);
+        transform: scale(1.05) rotate(1.5deg);
+        border: rgba(215, 190, 236, 0.1) solid 0.2rem;
     }
 
     .game-img {
@@ -163,6 +177,10 @@
 
     .comp-tag {
         background-color: #ff8484;
+    }
+
+    .todo-tag {
+        background-color: rgb(196, 191, 138);
     }
 
     .coop-tag {
@@ -238,14 +256,201 @@
             padding: 0.3rem 0.8rem;
         }
     }
+
+    .game-focuse-disabled {
+        display: none !important;
+    }
+
+    .game-focus-container {
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #040306ed;
+        z-index: 1;
+    }
+
+    .game-focus-window {
+        width: 50rem;
+        height: 30rem;
+        background: linear-gradient(#352434, #242a35);
+        box-shadow: 0 0 10rem rgba(211, 170, 238, 0.1);
+        border: rgba(215, 190, 236, 0.1) solid 0.2rem;
+        border-radius: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 2.5rem 3rem;
+    }
+
+    .game-focus-header {
+        width: 100%;
+        height: 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .game-focus-title {
+        font-size: 2rem;
+        font-weight: bold;
+    }
+
+    .close-icon {
+        font-size: 2rem;
+        font-weight: bold;
+        font-family: "Hachi Maru Pop", cursive;
+        cursor: pointer;
+        transition: 200ms;
+    }
+
+    .close-icon:hover {
+        color: #c9a064;
+        transform: scale(1.15);
+    }
+
+    .game-focus-content {
+        display: flex;
+        flex-direction: row;
+        justify-content: left;
+        gap: 2rem;
+        align-items: start;
+        margin-top: 1.5rem;
+    }
+
+    #focused-img {
+        width: auto;
+        height: 20rem;
+    }
+
+    #game-focus-tags {
+        display: flex;
+    }
+
+    .rating-container {
+        width: 20rem;
+        height: 1.2rem;
+        background-color: #26142baf;
+        overflow: hidden;
+    }
+
+    .rating-filling {
+        width: 60%;
+        height: 100%;
+        background: linear-gradient(0.25turn, rgb(197, 238, 170), palegreen);
+        box-shadow: rgba(179, 245, 185, 1) 0 0 5rem;
+    }
+
+    .top-rating {
+        border-radius: 1rem 1rem 0 0;
+    }
+
+    .bottom-rating {
+        border-radius: 0 0 1rem 1rem;
+    }
+
+    .rating-title {
+        margin-top: 1rem;
+        margin-bottom: 0.5rem;
+        font-size: 1.3rem;
+        font-family: "Hachi Maru Pop", cursive;
+    }
+
+    .rating-plus-data {
+        display: flex;
+        flex-direction: row;
+        gap: 0.8rem;
+    }
+
+    .rating-value {
+        font-family: "Hachi Maru Pop", cursive;
+        font-size: 0.8rem;
+    }
+
+    .to-rate-pin {
+        background-color: rgb(71, 58, 69);
+        color: palegoldenrod;
+        padding: 0.2rem 0.5rem;
+        border-radius: 1rem;
+        font-size: 0.8rem;
+    }
+
+    .random-game-button {
+        background: linear-gradient(rgb(221, 189, 128), palegoldenrod);
+        border: transparent 0;
+        border-radius: 0.5rem;
+        padding: 0.5rem 1rem;
+        font-family: "Hachi Maru Pop", cursive;
+        font-weight: bold;
+        font-size: 1.1rem;
+        transition: 200ms;
+    }
+
+    .random-game-button:hover {
+        background: linear-gradient(palegoldenrod, palegoldenrod);
+        cursor: pointer;
+        transform: scale(1.05) rotate(1.5deg);
+    }
 </style>
 
 <!-- HTML -->
 
 <body>
+    <div id="game-focus-container" class="game-focus-container game-focuse-disabled">
+        <div class="game-focus-window">
+            <div class="game-focus-header">
+                <h3 id="game-focus-title" class="game-focus-title">Game Name</h3>
+                <div class="close-icon" onclick="closeFocus()">X</div>
+            </div>
+            <div id="game-focus-tags"></div>
+            <div class="game-focus-content">
+                <div class="game-focus-left-side">
+                    <img id="focused-img" src="" alt="">
+                </div>
+                <div class="game-focus-right-side">
+                    <!-- GAMEPLAY RATING -->
+                    <div id="rating-gameplay-title" class="rating-title">Gameplay</div>
+                    <div class="rating-plus-data">
+                        <div class="rating-container top-rating">
+                            <div id="rating-gameplay-lulu" class="rating-filling top-rating"></div>
+                        </div>
+                        <span id="rating-gameplay-lulu-value" class="rating-value">7.5</span>
+                        <span class="rating-value">L</span>
+                    </div>
+                    <div class="rating-plus-data">
+                        <div class="rating-container bottom-rating">
+                            <div id="rating-gameplay-malvy" class="rating-filling bottom-rating"></div>
+                        </div>
+                        <span id="rating-gameplay-malvy-value" class="rating-value">7.5</span>
+                        <span class="rating-value">M</span>
+                    </div>
+
+                    <!-- VISUAL RATING -->
+                    <div id="rating-visual-title" class="rating-title">Visuals</div>
+                    <div class="rating-plus-data">
+                        <div class="rating-container top-rating">
+                            <div id="rating-visual-lulu" class="rating-filling top-rating"></div>
+                        </div>
+                        <span id="rating-visual-lulu-value" class="rating-value">7.5</span>
+                        <span class="rating-value">L</span>
+                    </div>
+                    <div class="rating-plus-data">
+                        <div class="rating-container bottom-rating">
+                            <div id="rating-visual-malvy" class="rating-filling bottom-rating"></div>
+                        </div>
+                        <span id="rating-visual-malvy-value" class="rating-value">7.5</span>
+                        <span class="rating-value">M</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="titles-container">
         <div class="titles">
             <h1>My Boardgames</h1>
+            <button class="random-game-button" onclick="getRandomGameFromFilter()">Random Game</button>
         </div>
     </div>
     <div class="filter-box-contaier">
@@ -266,6 +471,9 @@
             <div class="single-filter unselected-filter coop-tag filter-tag" onclick="filterByCoop()" id="coop-button">
                 Coop
             </div>
+            <div class="single-filter unselected-filter todo-tag filter-tag" onclick="filterByTodo()" id="todo-button">
+                Todo
+            </div>
             <div class="single-filter unselected-filter partygame-tag filter-tag" onclick="filterByPartyGame()"
                 id="partygame-button">
                 Party Game
@@ -279,6 +487,120 @@
 
 <!-- SCRIPTS -->
 <script>
+    function isTodo(game) {
+        if (game.ratings.gameplayLulu == 0 || game.ratings.gameplayMalvy == 0 || game.ratings.visualLulu == 0 || game.ratings.visualMalvy == 0)
+            return true;
+        return false;
+    }
+
+    function getRandomGameFromFilter() {
+        const availableGames = [];
+        collection.forEach(game => {
+            if (game.isDisplayed && !game.extensionOf)
+                availableGames.push(game);
+        });
+        focuseGame(availableGames[getRandomInt(availableGames.length)]);
+    }
+
+    function closeFocus() {
+        const focusContainer = document.getElementById("game-focus-container");
+        focusContainer.classList.add("game-focuse-disabled");
+        focusGame = null;
+    }
+
+    function getColorFromGradient(min, max, value, startHex, endHex) {
+        // 1. Normalize the value to a fraction between 0 and 1
+        const fraction = Math.max(0, Math.min(1, (value - min) / (max - min)));
+
+        // 2. Helper function to parse hex to RGB components
+        const hexToRgb = hex => {
+            const num = parseInt(hex.replace("#", ""), 16);
+            return { r: (num >> 16) & 255, g: (num >> 8) & 255, b: num & 255 };
+        };
+
+        const start = hexToRgb(startHex);
+        const end = hexToRgb(endHex);
+
+        // 3. Linearly interpolate each channel
+        const r = Math.round(start.r + fraction * (end.r - start.r));
+        const g = Math.round(start.g + fraction * (end.g - start.g));
+        const b = Math.round(start.b + fraction * (end.b - start.b));
+
+        return `rgb(${r}, ${g}, ${b})`;
+    }
+
+    function getMultiColorGradient(min, max, value, colorArray, opacity) {
+        // Normalize value to a 0-1 scale
+        const fraction = Math.max(0, Math.min(1, (value - min) / (max - min)));
+
+        if (fraction === 1) return colorArray[colorArray.length - 1];
+
+        // Find which segment the fraction falls into
+        const segmentCount = colorArray.length - 1;
+        const scaledFraction = fraction * segmentCount;
+        const index = Math.floor(scaledFraction); // Start color index
+        const segmentFraction = scaledFraction - index; // Progress within segment
+
+        const hexToRgb = hex => {
+            const num = parseInt(hex.replace("#", ""), 16);
+            return { r: (num >> 16) & 255, g: (num >> 8) & 255, b: num & 255 };
+        };
+
+        const start = hexToRgb(colorArray[index]);
+        const end = hexToRgb(colorArray[index + 1]);
+
+        const r = Math.round(start.r + segmentFraction * (end.r - start.r));
+        const g = Math.round(start.g + segmentFraction * (end.g - start.g));
+        const b = Math.round(start.b + segmentFraction * (end.b - start.b));
+
+        return `rgb(${r} ${g} ${b} / ${opacity}%)`;
+    }
+
+    function truncToOneDecimal(x) {
+        return Number.parseFloat(x).toFixed(1);
+    }
+
+    function setSingleRatingFilling(selector, user, value) {
+        const colors = ["#f6785e", "#cffd5e", "#54ffef"];
+        const visualMalvy = document.getElementById("rating-" + selector + "-" + user);
+        visualMalvy.style.width = value + "%";
+        visualMalvy.style.background = "linear-gradient(0.25turn, " + getMultiColorGradient(0, 200, value, colors, 80) + ", " + getMultiColorGradient(0, 100, value, colors, 100) + ")";
+    }
+
+    function setRatingFilling(values) {
+        setSingleRatingFilling("gameplay", "lulu", values.gameplayLulu);
+        setSingleRatingFilling("gameplay", "malvy", values.gameplayMalvy);
+        setSingleRatingFilling("visual", "lulu", values.visualLulu);
+        setSingleRatingFilling("visual", "malvy", values.visualMalvy);
+    }
+
+    function setRatingValue(values) {
+        console.log(values);
+        const gameplayLulu = document.getElementById("rating-gameplay-lulu-value");
+        gameplayLulu.innerHTML = truncToOneDecimal(values.gameplayLulu / 10);
+        const gameplayMalvy = document.getElementById("rating-gameplay-malvy-value");
+        gameplayMalvy.innerHTML = truncToOneDecimal(values.gameplayMalvy / 10);
+        const visualLulu = document.getElementById("rating-visual-lulu-value");
+        visualLulu.innerHTML = truncToOneDecimal(values.visualLulu / 10);
+        const visualMalvy = document.getElementById("rating-visual-malvy-value");
+        visualMalvy.innerHTML = truncToOneDecimal(values.visualMalvy / 10);
+    }
+
+    function focuseGame(game) {
+        const focusContainer = document.getElementById("game-focus-container");
+        focusContainer.classList.remove("game-focuse-disabled");
+        const focusTitle = document.getElementById("game-focus-title");
+        focusTitle.innerHTML = game.name;
+        const focusImg = document.getElementById("focused-img");
+        focusImg.src = gamesImgPath + game.name + ".png";
+        const focusTags = document.getElementById("game-focus-tags");
+        focusTags.innerHTML = "";
+        focusTags.appendChild(getTagListElement(game));
+        setRatingFilling(game.ratings);
+        setRatingValue(game.ratings);
+        focusGame = game;
+    }
+
     function getRandomInt(max) {
         return Math.floor(Math.random() * max);
     }
@@ -318,13 +640,21 @@
     function getGameContainer(game) {
         const newDiv = document.createElement("div");
         newDiv.classList.add("single-game-container")
+        newDiv.onclick = function () {
+            focuseGame(game);
+        }
         const newImg = document.createElement("img");
         newImg.src = gamesImgPath + game.name + ".png";
         newImg.classList.add("game-img");
         const newTitle = document.createElement("h3");
         newTitle.innerHTML = game.name;
         const newTagList = getTagListElement(game);
+        const toRateDiv = document.createElement("div");
+        toRateDiv.classList.add("to-rate-pin");
+        toRateDiv.innerHTML = "TODO"
         newDiv.appendChild(newTitle);
+        if (isTodo(game))
+            newDiv.appendChild(toRateDiv);
         newDiv.appendChild(newImg);
         newDiv.appendChild(newTagList);
         return newDiv;
@@ -390,6 +720,15 @@
         applyCurrentFilters()
     }
 
+    function filterByTodo() {
+        todoFilterStatus = !todoFilterStatus;
+        const statusButton = document.getElementById("todo-button");
+        statusButton.classList.remove("unselected-filter")
+        if (!todoFilterStatus)
+            statusButton.classList.add("unselected-filter")
+        applyCurrentFilters();
+    }
+
     function filterByComp() {
         compFilterStatus = !compFilterStatus;
         const statusButton = document.getElementById("comp-button");
@@ -453,6 +792,8 @@
                 game.isDisplayed = false;
             if (!game.gamemodes.includes("Comp") && compFilterStatus)
                 game.isDisplayed = false;
+            if (!isTodo(game) && todoFilterStatus)
+                game.isDisplayed = false;
             if (!game.gamemodes.includes("Party Game") && partyGameFilterStatus)
                 game.isDisplayed = false;
             if (playerFilterStatus && (playerFilterNumber < game.playerMin || playerFilterNumber > game.playerMax))
@@ -471,10 +812,12 @@
         return count;
     }
 
+    var focusGame = null;
     var playerFilterNumber = 1;
     var playerFilterStatus = false;
     var duoFilterStatus = false;
     var coopFilterStatus = false;
+    var todoFilterStatus = false;
     var compFilterStatus = false;
     var partyGameFilterStatus = false;
     const defaultCollection = getCollection();
