@@ -274,7 +274,7 @@
 
     .game-focus-window {
         width: 50rem;
-        height: 30rem;
+        height: 32rem;
         background: linear-gradient(#352434, #242a35);
         box-shadow: 0 0 10rem rgba(211, 170, 238, 0.1);
         border: rgba(215, 190, 236, 0.1) solid 0.2rem;
@@ -308,7 +308,7 @@
 
     .close-icon:hover {
         color: #c9a064;
-        transform: scale(1.15);
+        transform: scale(1.5) rotate(5deg);
     }
 
     .game-focus-content {
@@ -386,12 +386,22 @@
         font-weight: bold;
         font-size: 1.1rem;
         transition: 200ms;
+        width: fit-content;
     }
 
     .random-game-button:hover {
         background: linear-gradient(palegoldenrod, palegoldenrod);
         cursor: pointer;
         transform: scale(1.05) rotate(1.5deg);
+    }
+
+    .game-focus-left-side {
+        width: 20rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1.5rem;
     }
 </style>
 
@@ -408,6 +418,7 @@
             <div class="game-focus-content">
                 <div class="game-focus-left-side">
                     <img id="focused-img" src="" alt="">
+                    <button class="random-game-button" onclick="getRandomGameFromFilter()">Random Game</button>
                 </div>
                 <div class="game-focus-right-side">
                     <!-- GAMEPLAY RATING -->
@@ -499,11 +510,15 @@
             if (game.isDisplayed && !game.extensionOf)
                 availableGames.push(game);
         });
-        focuseGame(availableGames[getRandomInt(availableGames.length)]);
+        if (!availableGames.length)
+            alert("No game found with those filters");
+        else
+            focuseGame(availableGames[getRandomInt(availableGames.length)]);
     }
 
     function closeFocus() {
         const focusContainer = document.getElementById("game-focus-container");
+        focusContainer.classList.remove("game-focuse-disabled");
         focusContainer.classList.add("game-focuse-disabled");
         focusGame = null;
     }
@@ -575,7 +590,6 @@
     }
 
     function setRatingValue(values) {
-        console.log(values);
         const gameplayLulu = document.getElementById("rating-gameplay-lulu-value");
         gameplayLulu.innerHTML = truncToOneDecimal(values.gameplayLulu / 10);
         const gameplayMalvy = document.getElementById("rating-gameplay-malvy-value");
