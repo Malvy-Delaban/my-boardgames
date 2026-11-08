@@ -733,12 +733,12 @@
         });
     }
 
-    function setDisplayGameNumber(gameNumber) {
+    function setDisplayGameNumber(gameNbms) {
         const textElement = document.getElementById("game-number");
-        if (gameNumber > 0)
-            textElement.innerHTML = gameNumber + " games in collection";
+        if (gameNbms[0] > 0)
+            textElement.innerHTML = `${gameNbms[0]} games and ${gameNbms[1]} extensions found`;
         else
-            textElement.innerHTML = "No data";
+            textElement.innerHTML = "No games found with selected filters";
     }
 
     function getCollection() {
@@ -748,7 +748,7 @@
     function resetDisplay() {
         const containerDiv = document.getElementById("my-collection");
         containerDiv.innerHTML = '';
-        setDisplayGameNumber(0);
+        setDisplayGameNumber([0, 0]);
         defaultSelection();
     }
 
@@ -869,12 +869,15 @@
     }
 
     function getValidGameNumber(collection) {
-        var count = 0;
+        var gameNmb = 0;
+        var extensionNmb = 0;
         collection.forEach(game => {
-            if (game.isDisplayed)
-                count++;
+            if (game.isDisplayed && !game.extensionOf)
+                gameNmb++;
+            else if (game.isDisplayed && game.extensionOf)
+                extensionNmb++;
         });
-        return count;
+        return [gameNmb, extensionNmb];
     }
 
     var focusGame = null;
