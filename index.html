@@ -18,6 +18,7 @@
 
 <!-- INITIALIZE DATASETS -->
 <script src="dataset.js"></script>
+<script src="medalsDataset.js"></script>
 
 <!-- STYLE -->
 <style type="text/css">
@@ -307,7 +308,7 @@
     }
 
     .close-icon:hover {
-        color: #c9a064;
+        color: #f05961;
         transform: scale(1.5) rotate(5deg);
     }
 
@@ -403,6 +404,23 @@
         align-items: center;
         gap: 1.5rem;
     }
+
+    .hidden-medal {
+        display: none;
+    }
+
+    .medals {
+        margin-top: 2rem;
+        display: flex;
+        flex-direction: row;
+        gap: -2rem;
+        justify-content: left;
+    }
+
+    .medal-img {
+        width: 7rem;
+        height: auto;
+    }
 </style>
 
 <!-- HTML -->
@@ -453,6 +471,14 @@
                         </div>
                         <span id="rating-visual-malvy-value" class="rating-value">7.5</span>
                         <span class="rating-value">M</span>
+                    </div>
+                    <div class="medals">
+                        <img src="" alt="lulu-rank-medal" id="lulu-rank-medal" class="medal-img hidden-medal">
+                        <img src="assets/medals/fav-malvy.png" alt="lulu-fav-medal" id="lulu-fav-medal"
+                            class="medal-img hidden-medal">
+                        <img src="" alt="malvy-rank-medal" id="malvy-rank-medal" class="medal-img hidden-medal">
+                        <img src="assets/medals/fav-malvy.png" alt="malvy-fav-medal" id="malvy-fav-medal"
+                            class="medal-img hidden-medal">
                     </div>
                 </div>
             </div>
@@ -600,6 +626,30 @@
         visualMalvy.innerHTML = truncToOneDecimal(values.visualMalvy / 10);
     }
 
+    function handleRankPerson(person, game) {
+        const elementRank = document.getElementById(`${person}-rank-medal`);
+        elementRank.classList.remove("hidden-medal");
+        const personRank = (person == "lulu" ? ranksLulu : ranksMalvy);
+        elementRank.title = "";
+
+        if (game.name == personRank[0]) {
+            elementRank.src = `assets/medals/${person}-top1.png`;
+            elementRank.title = `${person}'s top 1`;
+        } else if (game.name == personRank[1]) {
+            elementRank.src = `assets/medals/${person}-top2.png`;
+            elementRank.title = `${person}'s top 2`;
+        } else if (game.name == personRank[2]) {
+            elementRank.src = `assets/medals/${person}-top3.png`;
+            elementRank.title = `${person}'s top 3`;
+        } else
+            elementRank.classList.add("hidden-medal");
+    }
+
+    function handleMedals(game) {
+        handleRankPerson("lulu", game);
+        handleRankPerson("malvy", game);
+    }
+
     function focuseGame(game) {
         const focusContainer = document.getElementById("game-focus-container");
         focusContainer.classList.remove("game-focuse-disabled");
@@ -613,6 +663,7 @@
         setRatingFilling(game.ratings);
         setRatingValue(game.ratings);
         focusGame = game;
+        handleMedals(game);
     }
 
     function getRandomInt(max) {
