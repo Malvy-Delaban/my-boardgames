@@ -110,16 +110,17 @@
     }
 
     .single-game-container {
-        background-color: #342d3d;
+        background-color: #342d3dc4;
         border-radius: 1rem;
-        padding: 1rem;
-        width: 12rem;
-        height: 20rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        width: 14rem;
+        height: 22rem;
         transition: 400ms;
         border: transparent solid 0.2rem;
+        overflow: hidden;
+    }
+
+    .single-game-container-medaled {
+        background-color: #3d2d3dc4;
     }
 
     .single-game-container:hover {
@@ -128,6 +129,32 @@
         box-shadow: 0rem 0rem 5rem rgba(215, 190, 236, 0.3);
         transform: scale(1.05) rotate(1.5deg);
         border: rgba(215, 190, 236, 0.1) solid 0.2rem;
+    }
+
+    .medal-background {
+        width: 12rem;
+        height: 20rem;
+        margin-bottom: -22rem;
+        padding: 1rem;
+        background: url(assets/medal_background.svg);
+        opacity: 3%;
+        z-index: 0;
+    }
+
+    .medal-background:hover {
+        transform: scale(1.5) rotate(-15deg);
+        transition: 500ms;
+        opacity: 5%;
+    }
+
+    .single-game-container-content {
+        width: 12rem;
+        height: 20rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
+        z-index: 1;
     }
 
     .game-img {
@@ -485,7 +512,7 @@
                     </div>
                     <div class="medals">
                         <img src="" alt="lulu-rank-medal" id="lulu-rank-medal" class="medal-img hidden-medal">
-                        <img src="assets/medals/fav-malvy.png" alt="lulu-fav-medal" id="lulu-fav-medal"
+                        <img src="assets/medals/fav-lulu.png" alt="lulu-fav-medal" id="lulu-fav-medal"
                             class="medal-img hidden-medal">
                         <img src="" alt="malvy-rank-medal" id="malvy-rank-medal" class="medal-img hidden-medal">
                         <img src="assets/medals/fav-malvy.png" alt="malvy-fav-medal" id="malvy-fav-medal"
@@ -659,9 +686,24 @@
             elementRank.classList.add("hidden-medal");
     }
 
+    function handleFavMedal(person, game) {
+        const elementFav = document.getElementById(`${person}-fav-medal`);
+        elementFav.classList.remove("hidden-medal");
+        const isFav = (person == "lulu" ? favLulu : favMalvy);
+        elementFav.title = "";
+
+        if (game.name == isFav) {
+            elementFav.title = `${person}'s favorite`;
+        } else {
+            elementFav.classList.add("hidden-medal");
+        }
+    }
+
     function handleMedals(game) {
         handleRankPerson("lulu", game);
+        handleFavMedal("lulu", game);
         handleRankPerson("malvy", game);
+        handleFavMedal("malvy", game);
     }
 
     function focuseGame(game) {
@@ -719,9 +761,28 @@
         return newDiv;
     }
 
+    function isGameMedaled(game) {
+        if (
+            game.name == ranksLulu[0]
+            || game.name == ranksLulu[1]
+            || game.name == ranksLulu[2]
+            || game.name == ranksMalvy[0]
+            || game.name == ranksMalvy[1]
+            || game.name == ranksMalvy[2]
+            || game.name == favLulu
+            || game.name == favMalvy
+        )
+            return true;
+        return false;
+    }
+
     function getGameContainer(game) {
         const newDiv = document.createElement("div");
         newDiv.classList.add("single-game-container")
+        const newMedalBackground = document.createElement("div");
+        newMedalBackground.classList.add("medal-background");
+        const newDivContent = document.createElement("div");
+        newDivContent.classList.add("single-game-container-content");
         newDiv.onclick = function () {
             focuseGame(game);
         }
@@ -734,11 +795,16 @@
         const toRateDiv = document.createElement("div");
         toRateDiv.classList.add("to-rate-pin");
         toRateDiv.innerHTML = "TODO"
-        newDiv.appendChild(newTitle);
+        if (isGameMedaled(game)) {
+            newDiv.appendChild(newMedalBackground);
+            newDivContent.classList.add("single-game-container-medaled");
+        }
+        newDiv.appendChild(newDivContent);
+        newDivContent.appendChild(newTitle);
         if (isTodo(game))
-            newDiv.appendChild(toRateDiv);
-        newDiv.appendChild(newImg);
-        newDiv.appendChild(newTagList);
+            newDivContent.appendChild(toRateDiv);
+        newDivContent.appendChild(newImg);
+        newDivContent.appendChild(newTagList);
         return newDiv;
     }
 

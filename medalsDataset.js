@@ -1,14 +1,14 @@
 const ranksLulu = [
-    "Dominion",
     "Zombicide",
-    "Présages"
+    "Présages",
+    "The Vale of Eternity"
 ];
 
 const ranksMalvy = [
-    "Dominion",
     "Zombicide",
-    "Présages"
+    "Dominion",
+    "Small World of Warcraft"
 ];
 
-const favLulu = "";
-const favMalvy = "";
+const favLulu = "Magic Soirée Jeu";
+const favMalvy = "Rising Sun";
