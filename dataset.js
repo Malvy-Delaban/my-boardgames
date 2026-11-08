@@ -1,6 +1,7 @@
 const boardGames = [
     {
         name: "Zombicide",
+        slug: "zombicide",
         gameLength: 60,
         playerMin: 1,
         playerMax: 6,
@@ -16,6 +17,7 @@ const boardGames = [
     },
     {
         name: "Dominion",
+        slug: "dominion",
         gameLength: 30,
         playerMin: 2,
         playerMax: 4,
@@ -31,6 +33,7 @@ const boardGames = [
     },
     {
         name: "Dominion Nocturne",
+        slug: "dominion-nocturne",
         extensionOf: "Dominion",
         gameLength: 30,
         playerMin: 2,
@@ -47,6 +50,7 @@ const boardGames = [
     },
     {
         name: "Dominion Alchemy",
+        slug: "dominion-alchemy",
         extensionOf: "Dominion",
         gameLength: 30,
         playerMin: 2,
@@ -63,6 +67,7 @@ const boardGames = [
     },
     {
         name: "Dominion Mixed Box",
+        slug: "dominion-mixed-box",
         extensionOf: "Dominion",
         gameLength: 30,
         playerMin: 2,
@@ -79,6 +84,7 @@ const boardGames = [
     },
     {
         name: "Middle-Ages",
+        slug: "middle-ages",
         gameLength: 30,
         playerMin: 2,
         playerMax: 5,
@@ -94,6 +100,7 @@ const boardGames = [
     },
     {
         name: "Mage Noir",
+        slug: "mage-noir",
         gameLength: 30,
         playerMin: 2,
         playerMax: 2,
@@ -110,6 +117,7 @@ const boardGames = [
     },
     {
         name: "Lueur",
+        slug: "lueur",
         gameLength: 45,
         playerMin: 2,
         playerMax: 4,
@@ -125,6 +133,7 @@ const boardGames = [
     },
     {
         name: "Andor",
+        slug: "andor",
         gameLength: 90,
         playerMin: 2,
         playerMax: 4,
@@ -140,6 +149,7 @@ const boardGames = [
     },
     {
         name: "Codex Naturalis",
+        slug: "codex-naturalis",
         gameLength: 25,
         playerMin: 2,
         playerMax: 4,
@@ -155,6 +165,7 @@ const boardGames = [
     },
     {
         name: "Kyudo",
+        slug: "kyudo",
         gameLength: 25,
         playerMin: 2,
         playerMax: 4,
@@ -170,6 +181,7 @@ const boardGames = [
     },
     {
         name: "The Vale of Eternity",
+        slug: "the-vale-of-eternity",
         gameLength: 40,
         playerMin: 2,
         playerMax: 4,
@@ -185,6 +197,7 @@ const boardGames = [
     },
     {
         name: "Take Time",
+        slug: "take-time",
         gameLength: 30,
         playerMin: 2,
         playerMax: 4,
@@ -200,6 +213,7 @@ const boardGames = [
     },
     {
         name: "Minute Realms",
+        slug: "minute-realms",
         gameLength: 30,
         playerMin: 2,
         playerMax: 5,
@@ -215,6 +229,7 @@ const boardGames = [
     },
     {
         name: "7 Wonders Dice",
+        slug: "7-wonders-dice",
         gameLength: 25,
         playerMin: 2,
         playerMax: 7,
@@ -230,6 +245,7 @@ const boardGames = [
     },
     {
         name: "One Deck Dungeon",
+        slug: "one-deck-dungeon",
         gameLength: 30,
         playerMin: 1,
         playerMax: 2,
@@ -246,6 +262,7 @@ const boardGames = [
     },
     {
         name: "Présages",
+        slug: "presages",
         gameLength: 30,
         playerMin: 4,
         playerMax: 6,
@@ -262,6 +279,7 @@ const boardGames = [
     },
     {
         name: "Courtisans",
+        slug: "courtisans",
         gameLength: 20,
         playerMin: 2,
         playerMax: 5,
@@ -277,6 +295,7 @@ const boardGames = [
     },
     {
         name: "Akropolis",
+        slug: "akropolis",
         gameLength: 25,
         playerMin: 2,
         playerMax: 4,
@@ -292,6 +311,7 @@ const boardGames = [
     },
     {
         name: "Riftbound - Proving Grounds",
+        slug: "riftbound-proving-grounds",
         gameLength: 30,
         playerMin: 2,
         playerMax: 4,
@@ -307,6 +327,7 @@ const boardGames = [
     },
     {
         name: "Dungeons, Dice & Danger",
+        slug: "dungeons-dice-danger",
         gameLength: 45,
         playerMin: 1,
         playerMax: 4,
@@ -322,6 +343,7 @@ const boardGames = [
     },
     {
         name: "Horrified D&D",
+        slug: "horrified-dd",
         gameLength: 45,
         playerMin: 1,
         playerMax: 5,
@@ -337,6 +359,7 @@ const boardGames = [
     },
     {
         name: "Abyss",
+        slug: "abyss",
         gameLength: 45,
         playerMin: 2,
         playerMax: 4,
@@ -352,6 +375,7 @@ const boardGames = [
     },
     {
         name: "Abyss De Profondis",
+        slug: "abyss-de-profondis",
         extensionOf: "Abyss",
         gameLength: 45,
         playerMin: 2,
@@ -368,6 +392,7 @@ const boardGames = [
     },
     {
         name: "Dice Forge",
+        slug: "dice-forge",
         gameLength: 45,
         playerMin: 2,
         playerMax: 4,
@@ -383,6 +408,7 @@ const boardGames = [
     },
     {
         name: "Clank",
+        slug: "clank",
         gameLength: 60,
         playerMin: 2,
         playerMax: 4,
@@ -398,6 +424,7 @@ const boardGames = [
     },
     {
         name: "The Hunger",
+        slug: "the-hunger",
         gameLength: 60,
         playerMin: 2,
         playerMax: 6,
@@ -413,6 +440,7 @@ const boardGames = [
     },
     {
         name: "Dungeons & Dragons",
+        slug: "dungeons-dragons",
         gameLength: 120,
         playerMin: 2,
         playerMax: 8,
@@ -428,6 +456,7 @@ const boardGames = [
     },
     {
         name: "Hellton Palace",
+        slug: "hellton-palace",
         gameLength: 60,
         playerMin: 2,
         playerMax: 2,
@@ -444,6 +473,7 @@ const boardGames = [
     },
     {
         name: "Canvas",
+        slug: "canvas",
         gameLength: 45,
         playerMin: 1,
         playerMax: 5,
@@ -459,6 +489,7 @@ const boardGames = [
     },
     {
         name: "Mr. Jack",
+        slug: "mr-jack",
         gameLength: 60,
         playerMin: 2,
         playerMax: 2,
@@ -475,6 +506,7 @@ const boardGames = [
     },
     {
         name: "Hero Realms",
+        slug: "hero-realms",
         gameLength: 45,
         playerMin: 2,
         playerMax: 4,
@@ -491,6 +523,7 @@ const boardGames = [
     },
     {
         name: "Time Bomb",
+        slug: "time-bomb",
         gameLength: 30,
         playerMin: 4,
         playerMax: 8,
@@ -507,6 +540,7 @@ const boardGames = [
     },
     {
         name: "Vaalbara",
+        slug: "vaalbara",
         gameLength: 30,
         playerMin: 2,
         playerMax: 5,
@@ -522,6 +556,7 @@ const boardGames = [
     },
     {
         name: "Tranquilité",
+        slug: "tranquilite",
         gameLength: 20,
         playerMin: 1,
         playerMax: 5,
@@ -537,6 +572,7 @@ const boardGames = [
     },
     {
         name: "Kyoto No Neko",
+        slug: "kyoto-no-neko",
         gameLength: 60,
         playerMin: 2,
         playerMax: 4,
@@ -552,6 +588,7 @@ const boardGames = [
     },
     {
         name: "Paper Tales",
+        slug: "paper-tales",
         gameLength: 60,
         playerMin: 1,
         playerMax: 7,
@@ -567,6 +604,7 @@ const boardGames = [
     },
     {
         name: "Takenoko",
+        slug: "takenoko",
         gameLength: 60,
         playerMin: 2,
         playerMax: 4,
@@ -582,6 +620,7 @@ const boardGames = [
     },
     {
         name: "Five Tribes",
+        slug: "five-tribes",
         gameLength: 120,
         playerMin: 2,
         playerMax: 4,
@@ -597,6 +636,7 @@ const boardGames = [
     },
     {
         name: "One Piece Adventure Island",
+        slug: "one-piece-adventure-island",
         gameLength: 45,
         playerMin: 2,
         playerMax: 6,
@@ -613,6 +653,7 @@ const boardGames = [
     },
     {
         name: "Small World of Warcraft",
+        slug: "small-world-of-warcraft",
         gameLength: 80,
         playerMin: 2,
         playerMax: 5,
@@ -628,6 +669,7 @@ const boardGames = [
     },
     {
         name: "Rising Sun",
+        slug: "rising-sun",
         gameLength: 120,
         playerMin: 3,
         playerMax: 5,
@@ -643,6 +685,7 @@ const boardGames = [
     },
     {
         name: "Antinomy",
+        slug: "antinomy",
         gameLength: 30,
         playerMin: 2,
         playerMax: 2,
@@ -659,6 +702,7 @@ const boardGames = [
     },
     {
         name: "In Vino Morte",
+        slug: "in-vino-morte",
         gameLength: 20,
         playerMin: 3,
         playerMax: 9,
@@ -675,6 +719,7 @@ const boardGames = [
     },
     {
         name: "Level 10",
+        slug: "level-10",
         gameLength: 20,
         playerMin: 1,
         playerMax: 5,
@@ -690,6 +735,7 @@ const boardGames = [
     },
     {
         name: "Personne n'a testé ce truc",
+        slug: "personne-na-teste-ce-truc",
         gameLength: 15,
         playerMin: 2,
         playerMax: 17,
@@ -706,6 +752,7 @@ const boardGames = [
     },
     {
         name: "Vivarium",
+        slug: "vivarium",
         gameLength: 30,
         playerMin: 2,
         playerMax: 4,
@@ -721,6 +768,7 @@ const boardGames = [
     },
     {
         name: "Catan",
+        slug: "catan",
         gameLength: 120,
         playerMin: 3,
         playerMax: 4,
@@ -736,6 +784,7 @@ const boardGames = [
     },
     {
         name: "7 Wonders",
+        slug: "7-wonders",
         gameLength: 30,
         playerMin: 2,
         playerMax: 7,
@@ -751,6 +800,7 @@ const boardGames = [
     },
     {
         name: "Splendor",
+        slug: "splendor",
         gameLength: 30,
         playerMin: 2,
         playerMax: 4,
@@ -766,6 +816,7 @@ const boardGames = [
     },
     {
         name: "Citadelles",
+        slug: "citadelles",
         gameLength: 60,
         playerMin: 2,
         playerMax: 8,
@@ -782,6 +833,7 @@ const boardGames = [
     },
     {
         name: "Complots 2",
+        slug: "complots-2",
         gameLength: 15,
         playerMin: 2,
         playerMax: 8,
@@ -798,6 +850,7 @@ const boardGames = [
     },
     {
         name: "Magic Soirée Jeu",
+        slug: "magic-soiree-jeu",
         gameLength: 45,
         playerMin: 2,
         playerMax: 5,
@@ -814,6 +867,7 @@ const boardGames = [
     },
     {
         name: "Mille Sabords",
+        slug: "mille-sabords",
         gameLength: 30,
         playerMin: 2,
         playerMax: 5,
@@ -829,6 +883,7 @@ const boardGames = [
     },
     {
         name: "Moon Colony",
+        slug: "moon-colony",
         gameLength: 120,
         playerMin: 1,
         playerMax: 5,

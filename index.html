@@ -543,6 +543,7 @@
     }
 
     function closeFocus() {
+        window.history.replaceState({}, "", "/");
         const focusContainer = document.getElementById("game-focus-container");
         focusContainer.classList.remove("game-focuse-disabled");
         focusContainer.classList.add("game-focuse-disabled");
@@ -651,6 +652,7 @@
     }
 
     function focuseGame(game) {
+        window.history.pushState({ game: game.name }, game.name, `/${game.slug}`);
         const focusContainer = document.getElementById("game-focus-container");
         focusContainer.classList.remove("game-focuse-disabled");
         const focusTitle = document.getElementById("game-focus-title");
@@ -880,6 +882,15 @@
         return [gameNmb, extensionNmb];
     }
 
+    function getGameFromName(name) {
+        var game = null;
+        collection.forEach((obj) => {
+            if (obj.name == name)
+                game = obj;
+        });
+        return obj;
+    }
+
     var focusGame = null;
     var playerFilterNumber = 1;
     var playerFilterStatus = false;
@@ -895,6 +906,16 @@
 
     setDisplayGameNumber(getValidGameNumber(collection));
     fillCollectionContainer(collection);
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const path = window.location.pathname;
+        if (path) {
+            console.log("path: " + path);
+            const gamename = path.substring(1);
+            console.log("gamename: " + gamename);
+            focuseGame(getGameFromName(gamename));
+        }
+    });
 </script>
 
 </html>
