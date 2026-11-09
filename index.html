@@ -59,6 +59,26 @@
         transform: scale(1.05) rotate(1.5deg);
     }
 
+    .button-access-wishlist {
+        background: linear-gradient(rgb(128, 215, 221), rgb(139, 155, 199));
+        border: transparent 0;
+        border-radius: 0.5rem;
+        padding: 0.5rem 1rem;
+        font-family: "Hachi Maru Pop", cursive;
+        font-weight: bold;
+        font-size: 1.1rem;
+        transition: 200ms;
+        width: fit-content;
+        margin-left: 1rem;
+    }
+
+    .button-access-wishlist:hover {
+        background: linear-gradient(rgb(81, 174, 180), rgb(79, 99, 155));
+        color: rgb(174, 206, 255);
+        cursor: pointer;
+        transform: scale(1.05) rotate(1.5deg);
+    }
+
     h1 {
         margin-top: 0;
         margin-bottom: 0;
@@ -159,11 +179,11 @@
         background: url(assets/medal_background.svg);
         opacity: 3%;
         z-index: 0;
+        transition: 500ms;
     }
 
     .medal-background:hover {
         transform: scale(1.5) rotate(-15deg);
-        transition: 500ms;
         opacity: 5%;
     }
 
@@ -547,6 +567,7 @@
             <h1>My Boardgames</h1>
             <button class="random-game-button" onclick="getRandomGameFromFilter()">Random Game</button>
             <button class="button-access-listing" onclick="location.href='/listing.html';">List</button>
+            <button class="button-access-wishlist" onclick="location.href='/wishlist.html';">Wishlist</button>
         </div>
     </div>
     <div class="filter-box-contaier">

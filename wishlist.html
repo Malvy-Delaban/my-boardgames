@@ -1,0 +1,386 @@
+<!DOCTYPE HTML>
+<html>
+<title>My Boardgames Wishlist</title>
+<link rel="icon" type="image/x-icon" href="/assets/icon.ico">
+
+<!-- DISCORD PREVIEW -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://my-boardgames.malvy-delaban.fr/">
+<meta property="og:title" content="Lulu & Malvy's wishlist">
+<meta property="og:description" content="A simple boardgames collection.">
+
+<!-- IMPORT FONTS -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Exile&display=swap" rel="stylesheet">
+
+<!-- INITIALIZE DATASETS -->
+<script src="dataset.js"></script>
+<script src="wishlistDataset.js"></script>
+<script src="medalsDataset.js"></script>
+
+<!-- STYLE -->
+<style>
+    html,
+    body {
+        width: 100%;
+    }
+
+    html {
+        background: linear-gradient(#352434, #242a35);
+        color: white;
+        font-family: "Commissioner", sans-serif;
+        min-height: 100vh;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    .button-access-listing {
+        background: linear-gradient(rgb(168, 128, 221), rgb(150, 139, 199));
+        border: transparent 0;
+        border-radius: 0.5rem;
+        padding: 0.5rem 1rem;
+        font-family: "Hachi Maru Pop", cursive;
+        font-weight: bold;
+        font-size: 1.1rem;
+        transition: 200ms;
+        width: fit-content;
+        margin-left: 1rem;
+    }
+
+    .button-access-listing:hover {
+        background: linear-gradient(rgb(105, 76, 143), rgb(95, 86, 134));
+        color: rgb(194, 145, 197);
+        cursor: pointer;
+        transform: scale(1.05) rotate(1.5deg);
+    }
+
+    .button-access-wishlist {
+        background: linear-gradient(rgb(128, 215, 221), rgb(139, 155, 199));
+        border: transparent 0;
+        border-radius: 0.5rem;
+        padding: 0.5rem 1rem;
+        font-family: "Hachi Maru Pop", cursive;
+        font-weight: bold;
+        font-size: 1.1rem;
+        transition: 200ms;
+        width: fit-content;
+        margin-left: 1rem;
+    }
+
+    .button-access-wishlist:hover {
+        background: linear-gradient(rgb(81, 174, 180), rgb(79, 99, 155));
+        color: rgb(174, 206, 255);
+        cursor: pointer;
+        transform: scale(1.05) rotate(1.5deg);
+    }
+
+    h1 {
+        margin-top: 0;
+        margin-bottom: 0;
+        font-family: "Exile", system-ui;
+        color: #ffdd84;
+        font-size: 4rem;
+        font-weight: normal;
+        background: -webkit-linear-gradient(#ffdd84, #c9a064);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .titles-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding-top: 2rem;
+        text-align: center;
+    }
+
+    #my-wishlist {
+        width: calc(100% - 4rem);
+        margin: 2rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+    }
+
+    .single-element-wishlist {
+        background: linear-gradient(#5c415f, #42415f);
+        width: 50rem;
+        height: 15rem;
+        border-radius: 1rem;
+        padding: 2rem;
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        border: rgba(215, 190, 236, 0.05) solid 0.2rem;
+    }
+
+    .img-game {
+        width: 15rem;
+        height: 15rem;
+        object-fit: contain;
+    }
+
+    .right-side {
+        width: 30rem;
+        position: block;
+        display: flex;
+        flex-direction: column;
+        justify-content: left;
+        gap: 0.2rem;
+    }
+
+    h2 {
+        font-family: "Hachi Maru Pop", cursive;
+        color: white;
+        font-size: 1.4rem;
+        font-weight: 500;
+        margin: 0;
+    }
+
+    h3 {
+        font-family: "Hachi Maru Pop", cursive;
+        color: white;
+        font-size: 1rem;
+        font-weight: normal;
+        margin: 0;
+    }
+
+    h4 {
+        font-family: "Hachi Maru Pop", cursive;
+        font-size: 0.8rem;
+        font-weight: normal;
+        margin: 0;
+    }
+
+    a {
+        font-family: "Hachi Maru Pop", cursive;
+        color: rgb(171, 211, 235);
+        font-size: 0.8rem;
+        font-weight: normal;
+        margin: 0;
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    .tags {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        justify-content: left;
+        margin-top: 1.5rem;
+    }
+
+    .price-line {
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        justify-content: left;
+        align-items: end;
+        gap: 0.5rem;
+    }
+
+    .malvy-tag {
+        margin-top: 0.3rem;
+        width: 2.5rem;
+        background-color: rgb(103, 167, 103);
+        padding: 0.3rem 0.8rem;
+        border-radius: 1rem;
+        text-align: center;
+    }
+
+    .lulu-tag {
+        width: 2.5rem;
+        background-color: rgb(165, 103, 167);
+        padding: 0.3rem 0.8rem;
+        border-radius: 1rem;
+        text-align: center;
+    }
+
+    .line {
+        display: flex;
+        flex-direction: row;
+        justify-content: left;
+        align-items: center;
+        gap: 0.3rem;
+    }
+
+    .dot {
+        width: 0.5rem;
+        height: 0.5rem;
+        border-radius: 100%;
+        background-color: gold;
+    }
+
+    .malvy-dot {
+        background-color: rgb(103, 167, 103);
+    }
+
+    .lulu-dot {
+        background-color: rgb(165, 103, 167);
+    }
+
+    .no-dot {
+        background-color: #2b2a42;
+    }
+
+    .button-gameplay {
+        background: linear-gradient(rgb(124, 85, 150), rgb(167, 113, 202));
+        border: transparent 0;
+        border-radius: 0.5rem;
+        padding: 0.3rem 0.6rem;
+        font-family: "Hachi Maru Pop", cursive;
+        font-weight: bold;
+        font-size: 0.8rem;
+        transition: 200ms;
+        width: fit-content;
+        margin-top: 0.5rem;
+        color: white;
+    }
+
+    .button-gameplay:hover {
+        background: linear-gradient(rgb(101, 66, 124), rgb(131, 83, 163));
+        cursor: pointer;
+        transform: scale(1.05) rotate(1.5deg);
+    }
+</style>
+
+<!-- HTML -->
+
+<body>
+    <div class="titles-container">
+        <div class="titles">
+            <h1>My Wishlist</h1>
+            <button class="button-access-listing" onclick="location.href='/listing.html';">List</button>
+            <button class="button-access-wishlist" onclick="location.href='/index.html';">Collection</button>
+        </div>
+    </div>
+    <div id="my-wishlist">
+    </div>
+</body>
+
+<!-- SCRIPT -->
+<script>
+    function getGameFromName(name) {
+        var game = null;
+        console.log(boardGames);
+        console.log(name);
+        boardGames.forEach((obj) => {
+            if (obj.name == name)
+                game = obj;
+        });
+        return game;
+    }
+
+    function fillWishlist() {
+        const containerDiv = document.getElementById("my-wishlist");
+        console.log(wishlist);
+        wishlist.forEach(game => {
+            const singleGameDiv = document.createElement("div");
+            singleGameDiv.classList.add("single-element-wishlist");
+
+            // IMG
+            const img = document.createElement("img");
+            img.classList.add("img-game");
+            img.src = gamesImgPath + game.name + ".png";
+
+            // RIGHT SIDE
+            const rightSide = document.createElement("div");
+            rightSide.classList.add("right-side");
+            const title = document.createElement("h2");
+            title.innerHTML = game.name;
+            rightSide.appendChild(title);
+
+            // PRICE AND EXTENSION OF
+            const priceLine = document.createElement("div");
+            priceLine.classList.add("price-line");
+            const price = document.createElement("h3");
+            price.innerHTML = Number.parseFloat(game.price).toFixed(2) + "€";
+            priceLine.appendChild(price);
+            if (game.extensionOf) {
+                var slug = getGameFromName(game.extensionOf).slug;
+                const extensionOf = document.createElement("a");
+                extensionOf.innerHTML = "(An extension of '" + game.extensionOf + "')";
+                extensionOf.href = `/index.html?game=${slug}`;
+                priceLine.appendChild(extensionOf);
+            }
+            rightSide.appendChild(priceLine);
+
+            // DATE ADDED
+            const dateAdded = document.createElement("h4");
+            dateAdded.classList.add("date");
+            dateAdded.innerHTML = "Added on: " + game.dateAdded;
+            rightSide.appendChild(dateAdded);
+
+            // NEEDING IT
+            // LULU
+            const tags = document.createElement("div");
+            tags.classList.add("tags");
+            const luluLine = document.createElement("div");
+            luluLine.classList.add("line");
+            const luluTag = document.createElement("div");
+            luluTag.classList.add("lulu-tag");
+            luluTag.innerHTML = "Lulu";
+            luluLine.appendChild(luluTag);
+            for (var i = 0; i < 3; i++) {
+                const singleDot = document.createElement("div");
+                singleDot.classList.add("dot");
+                if (i < game.wantsIt.lulu)
+                    singleDot.classList.add("lulu-dot");
+                else
+                    singleDot.classList.add("no-dot");
+                luluLine.appendChild(singleDot);
+            }
+            tags.appendChild(luluLine);
+            // MALVY
+            const malvyLine = document.createElement("div");
+            malvyLine.classList.add("line");
+            malvyLine.classList.add("malvy-line");
+            const malvyTag = document.createElement("div");
+            malvyTag.classList.add("malvy-tag");
+            malvyTag.innerHTML = "Malvy";
+            malvyLine.appendChild(malvyTag);
+            for (var i = 0; i < 3; i++) {
+                const singleDot = document.createElement("div");
+                singleDot.classList.add("dot");
+                if (i < game.wantsIt.malvy)
+                    singleDot.classList.add("malvy-dot");
+                else
+                    singleDot.classList.add("no-dot");
+                malvyLine.appendChild(singleDot);
+            }
+            tags.appendChild(malvyLine);
+            rightSide.appendChild(tags);
+
+            // GAMEPLAY BUTTON
+            const button = document.createElement("button");
+            button.innerHTML = "Check gameplay"
+            button.classList.add("button-gameplay");
+            button.onclick = function () {
+                window.open(game.gameplayLink, '_blank');
+            };
+            rightSide.appendChild(button);
+
+            // BUILD
+            singleGameDiv.appendChild(img);
+            singleGameDiv.appendChild(rightSide);
+            containerDiv.appendChild(singleGameDiv);
+        });
+    }
+
+    var gamesImgPath = "assets/wishlist/"
+    fillWishlist();
+</script>
+
+</html>
