@@ -1,0 +1,165 @@
+<!DOCTYPE HTML>
+<html>
+<title>My Boardgames list</title>
+<link rel="icon" type="image/x-icon" href="/assets/icon.ico">
+
+<!-- INITIALIZE DATASETS -->
+<script src="dataset.js"></script>
+<script src="medalsDataset.js"></script>
+
+<!-- STYLE -->
+<style>
+    html {
+        background-color: rgb(38, 35, 41);
+        color: rgb(191, 171, 204);
+    }
+
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td,
+    th {
+        border: 1px solid #5b5464;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: rgb(63, 57, 70);
+    }
+
+    .button-access-listing {
+        margin-bottom: 1rem;
+    }
+
+    .link-name {}
+
+    .link-name:hover {
+        cursor: pointer;
+        text-decoration: underline;
+        color: wheat;
+    }
+
+    .todo {
+        opacity: 15%;
+        background-color: rgb(20, 20, 20);
+    }
+</style>
+
+<!-- HTML -->
+<button class="button-access-listing" onclick="location.href='/index.html';">Back to collection</button>
+
+<body>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Gameplay L.
+                        <button onclick="sortAndReload('ratings.gameplayLulu', true)">Desc.</button>
+                        <button onclick="sortAndReload('ratings.gameplayLulu', false)">Asc.</button>
+                    </th>
+                    <th>
+                        Visuals L.
+                        <button onclick="sortAndReload('ratings.visualLulu', true)">Desc.</button>
+                        <button onclick="sortAndReload('ratings.visualLulu', false)">Asc.</button>
+                    </th>
+                    <th>
+                        Gameplay M.
+                        <button onclick="sortAndReload('ratings.gameplayMalvy', true)">Desc.</button>
+                        <button onclick="sortAndReload('ratings.gameplayMalvy', false)">Asc.</button>
+                    </th>
+                    <th>
+                        Visuals M.
+                        <button onclick="sortAndReload('ratings.visualMalvy', true)">Desc.</button>
+                        <button onclick="sortAndReload('ratings.visualMalvy', false)">Asc.</button>
+                    </th>
+                </tr>
+            </thead>
+            <tbody id="content">
+
+            </tbody>
+        </table>
+    </div>
+</body>
+
+<script>
+    function isTodo(game) {
+        if (game.ratings.gameplayLulu == 0 || game.ratings.gameplayMalvy == 0 || game.ratings.visualLulu == 0 || game.ratings.visualMalvy == 0)
+            return true;
+        return false;
+    }
+
+    function fillList(myCollection) {
+        const table = document.getElementById("content");
+        myCollection.forEach((singleGame) => {
+            const tr = document.createElement("tr");
+            if (isTodo(singleGame))
+                tr.classList.add("todo");
+            const tdName = document.createElement("td");
+            tdName.innerHTML = singleGame.name;
+            tdName.onclick = function () {
+                location.href = `/index.html?game=${singleGame.slug}`;
+            }
+            tdName.classList.add("link-name");
+            const tdGL = document.createElement("td");
+            tdGL.innerHTML = singleGame.ratings.gameplayLulu;
+            const tdVL = document.createElement("td");
+            tdVL.innerHTML = singleGame.ratings.visualLulu;
+            const tdGM = document.createElement("td");
+            tdGM.innerHTML = singleGame.ratings.gameplayMalvy;
+            const tdVM = document.createElement("td");
+            tdVM.innerHTML = singleGame.ratings.visualMalvy;
+            tr.appendChild(tdName);
+            tr.appendChild(tdGL);
+            tr.appendChild(tdVL);
+            tr.appendChild(tdGM);
+            tr.appendChild(tdVM);
+            table.appendChild(tr);
+        });
+    }
+
+    function sortDescending(collection, pathProperty, isDesc) {
+        // Fonction interne pour récupérer une valeur imbriquée (ex: "ratings.gameplayLulu")
+        const getValue = (obj, path) =>
+            path.split('.').reduce((acc, cle) => (acc && acc[cle] !== undefined) ? acc[cle] : undefined, obj);
+
+        return [...collection].sort((a, b) => {
+            const valA = getValue(a, pathProperty);
+            const valB = getValue(b, pathProperty);
+
+            if (valA === undefined) return 1;
+            if (valB === undefined) return -1;
+
+            if (isDesc)
+                return valB - valA;
+            else
+                return valA - valB;
+        });
+    }
+
+    function emptyList() {
+        const table = document.getElementById("content");
+        table.innerHTML = "";
+    }
+
+    function sortAndReload(pathProperty, isDesc) {
+        emptyList();
+        console.log(myCollection[0]);
+        myCollection = sortDescending(myCollection, pathProperty, isDesc)
+        console.log(myCollection[0]);
+        fillList(myCollection);
+    }
+
+    var myCollection = boardGames;
+    myCollection = sortDescending(myCollection, 'ratings.gameplayLulu', true);
+    fillList(myCollection);
+</script>
+
+</html>
