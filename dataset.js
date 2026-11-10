@@ -628,10 +628,10 @@ const boardGames = [
             "Comp"
         ],
         ratings: {
-            gameplayLulu: 0,
-            gameplayMalvy: 0,
-            visualLulu: 0,
-            visualMalvy: 0,
+            gameplayLulu: 70,
+            gameplayMalvy: 60,
+            visualLulu: 50,
+            visualMalvy: 39,
         }
     },
     {

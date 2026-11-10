@@ -254,14 +254,19 @@
         cursor: pointer;
         transform: scale(1.05) rotate(1.5deg);
     }
+
+    .count {
+        margin-bottom: 0.8rem;
+        font-size: 1rem;
+    }
 </style>
 
 <!-- HTML -->
-
 <body>
     <div class="titles-container">
         <div class="titles">
             <h1>My Wishlist</h1>
+            <h2 class="count"><span id="wishlist-count"></span> Games in wishlist</h1>
             <button class="button-access-listing" onclick="location.href='/listing.html';">List</button>
             <button class="button-access-wishlist" onclick="location.href='/index.html';">Collection</button>
         </div>
@@ -274,8 +279,6 @@
 <script>
     function getGameFromName(name) {
         var game = null;
-        console.log(boardGames);
-        console.log(name);
         boardGames.forEach((obj) => {
             if (obj.name == name)
                 game = obj;
@@ -283,10 +286,21 @@
         return game;
     }
 
+    function getCommonHype(game) {
+        return ((game.wantsIt.lulu + game.wantsIt.malvy) / 2);
+    }
+
+    function compareHype(a, b) {
+        if (getCommonHype(a) > getCommonHype(b))
+            return -1;
+        if (getCommonHype(a) < getCommonHype(b))
+            return 1;
+        return 0;
+    }
+
     function fillWishlist() {
         const containerDiv = document.getElementById("my-wishlist");
-        console.log(wishlist);
-        wishlist.forEach(game => {
+        myWishlist.forEach(game => {
             const singleGameDiv = document.createElement("div");
             singleGameDiv.classList.add("single-element-wishlist");
 
@@ -379,8 +393,15 @@
         });
     }
 
+    function getWishlistCount() {
+        const countDiv = document.getElementById("wishlist-count");
+        countDiv.innerHTML = myWishlist.length;
+    }
+
     var gamesImgPath = "assets/wishlist/"
+    var myWishlist = wishlist.sort(compareHype);
     fillWishlist();
+    getWishlistCount();
 </script>
 
 </html>
