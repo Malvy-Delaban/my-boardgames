@@ -141,5 +141,27 @@ const wishlist = [
             malvy: 2,
         },
         dateAdded: "09/11/2026"
+    },
+    {
+        name: "Hues And Cues",
+        extensionOf: "",
+        price: 28.99,
+        gameplayLink: "https://www.youtube.com/watch?v=hMSn_p8c6uI",
+        wantsIt: {
+            lulu: 1,
+            malvy: 3,
+        },
+        dateAdded: "09/11/2026"
+    },
+    {
+        name: "Enthrone",
+        extensionOf: "",
+        price: 42.95,
+        gameplayLink: "https://www.youtube.com/watch?v=5tJsK8k0RG4",
+        wantsIt: {
+            lulu: 1,
+            malvy: 1,
+        },
+        dateAdded: "09/11/2026"
     }
 ];
