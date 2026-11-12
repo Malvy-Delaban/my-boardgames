@@ -94,7 +94,7 @@ const wishlist = [
         gameplayLink: "https://www.youtube.com/watch?v=v_3q3z27q90",
         wantsIt: {
             lulu: 2,
-            malvy: 3,
+            malvy: 2,
         },
         dateAdded: "09/11/2026"
     },
