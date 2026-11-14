@@ -82,7 +82,7 @@ const wishlist = [
         price: 35.90,
         gameplayLink: "https://www.youtube.com/watch?v=p9Fjwudo_qE",
         wantsIt: {
-            lulu: 3,
+            lulu: 2,
             malvy: 1,
         },
         dateAdded: "09/11/2026"
@@ -127,7 +127,7 @@ const wishlist = [
         gameplayLink: "https://www.youtube.com/watch?v=l-lSr97GMu0",
         wantsIt: {
             lulu: 0,
-            malvy: 2,
+            malvy: 1,
         },
         dateAdded: "09/11/2026"
     },
@@ -251,5 +251,49 @@ const wishlist = [
             malvy: 0,
         },
         dateAdded: "10/11/2026"
+    },
+    {
+        name: "Satisfactory The Board Game",
+        extensionOf: "",
+        price: 135.00,
+        gameplayLink: "https://www.youtube.com/watch?v=s5Fl4NomEQM",
+        wantsIt: {
+            lulu: 3,
+            malvy: 3,
+        },
+        dateAdded: "14/11/2026"
+    },
+    {
+        name: "Deep Rock Galactic The Board Game",
+        extensionOf: "",
+        price: 69.95,
+        gameplayLink: "https://www.youtube.com/watch?v=3ubt-MBT3JM",
+        wantsIt: {
+            lulu: 2,
+            malvy: 3,
+        },
+        dateAdded: "14/11/2026"
+    },
+    {
+        name: "Kelp",
+        extensionOf: "",
+        price: 32.95,
+        gameplayLink: "https://www.youtube.com/watch?v=GJLxqBPgXWs",
+        wantsIt: {
+            lulu: 2,
+            malvy: 2,
+        },
+        dateAdded: "14/11/2026"
+    },
+    {
+        name: "Flamecraft Duals",
+        extensionOf: "",
+        price: null,
+        gameplayLink: "https://www.youtube.com/watch?v=uGp37qy8orA",
+        wantsIt: {
+            lulu: 3,
+            malvy: 2,
+        },
+        dateAdded: "14/11/2026"
     }
 ];
