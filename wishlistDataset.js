@@ -295,5 +295,16 @@ const wishlist = [
             malvy: 2,
         },
         dateAdded: "14/11/2026"
+    },
+    {
+        name: "Orapa Mine",
+        extensionOf: "",
+        price: 22.90,
+        gameplayLink: "https://www.youtube.com/watch?v=-ljtWj0y3Nc",
+        wantsIt: {
+            lulu: 2,
+            malvy: 3,
+        },
+        dateAdded: "28/11/2026"
     }
 ];
