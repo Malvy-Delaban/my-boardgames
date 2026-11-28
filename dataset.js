@@ -205,10 +205,10 @@ const boardGames = [
             "Coop"
         ],
         ratings: {
-            gameplayLulu: 0,
-            gameplayMalvy: 0,
-            visualLulu: 0,
-            visualMalvy: 0,
+            gameplayLulu: 64,
+            gameplayMalvy: 48,
+            visualLulu: 73,
+            visualMalvy: 70,
         }
     },
     {
