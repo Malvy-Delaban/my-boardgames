@@ -306,5 +306,16 @@ const wishlist = [
             malvy: 3,
         },
         dateAdded: "28/11/2026"
+    },
+    {
+        name: "Wingspan",
+        extensionOf: "",
+        price: 59.95,
+        gameplayLink: "https://www.youtube.com/watch?v=aAjFAySW_oY",
+        wantsIt: {
+            lulu: 1,
+            malvy: 2,
+        },
+        dateAdded: "28/11/2026"
     }
 ];
